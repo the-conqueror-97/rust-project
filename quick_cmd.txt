@@ -1,0 +1,6 @@
+cargo install cargo-watch        # watches the filesystem and runs commands
+cargo install systemfd           # hands over the listening socket to the new binary
+
+cargo watch -x run               # rebuild & rerun on every change
+# or, if your program is a server that listens on a port (e.g. 3000):
+systemfd --no-pid -s http::3000 -- cargo watch -x run
